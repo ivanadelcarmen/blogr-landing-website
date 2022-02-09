@@ -26,6 +26,7 @@ $(".icon-hamburger").click(function() {
   if ($(this).attr("src") === "./images/icon-hamburger.svg") {
     $(this).attr("src", "./images/icon-close.svg");
     $(this).css("width", "30px");
+    $("body").css("overflow", "hidden");
     if (window.matchMedia("(min-width: 500px)").matches) {
       $(".collapsable-menu").css("display", "block").animate({left: "10%", opacity: "1"});
     } else {
@@ -39,6 +40,7 @@ $(".icon-hamburger").click(function() {
       $(this).css("width", "38px");
     }
     $(".collapsable-menu").animate({left: "100%", opacity: "0"}, 350, "swing", function() {
+      $("body").css("overflow", "auto");
       $(".collapsable-menu").css("display", "none");
       $(".nav-item").removeClass("item-active");
       $(".nav-item").next().hide();
